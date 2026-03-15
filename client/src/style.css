@@ -1,0 +1,209 @@
+/* นำเข้าฟอนต์ Kanit จาก Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----------------------------------
+   RacketRun Login Styles
+----------------------------------- */
+@layer components {
+
+    /* พื้นหลังหลัก (โทนอมฟ้านิดๆ ให้ดูคลีน) */
+    .login-wrapper {
+        @apply min-h-screen flex items-center justify-center bg-slate-50 font-sans p-4 relative z-0;
+    }
+
+    /* ตัวการ์ด แบ่ง 2 ฝั่ง */
+    .login-card {
+        @apply flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-[2.5rem] overflow-hidden z-10;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ---- ฝั่งซ้าย: ฟอร์ม (Form Side) ---- */
+    .login-form-side {
+        @apply w-full md:w-1/2 p-10 md:p-14 flex flex-col justify-center bg-white;
+    }
+
+    .login-title {
+        /* ปรับหัวข้อให้เข้ากับสีโลโก้ */
+        @apply text-4xl font-semibold text-slate-800 tracking-wide mb-2;
+    }
+
+    .login-subtitle {
+        @apply text-slate-500 text-sm font-normal tracking-wide;
+    }
+
+    /* ---- ฝั่งขวา: แบนเนอร์ (Banner Side) โทนสีโลโก้ ---- */
+    .login-banner-side {
+        /* ไล่สีเขียวเข้มไปหาเขียวสด แบบเดียวกับโลโก้ */
+        @apply hidden md:flex w-full md:w-1/2 bg-gradient-to-br from-emerald-700 to-emerald-500 flex-col items-center justify-center p-12 text-center relative overflow-hidden;
+    }
+
+    .banner-title {
+        @apply text-4xl font-bold text-white mb-4 tracking-wider leading-tight z-10;
+    }
+
+    .banner-text {
+        @apply text-emerald-50 text-sm font-light leading-relaxed px-4 z-10;
+    }
+
+    /* ---- ช่องกรอกข้อมูล (ทรงแคปซูล) ---- */
+    .login-form {
+        @apply space-y-5 mt-8;
+    }
+
+    .input-wrapper {
+        @apply relative flex items-center;
+    }
+
+    .input-icon {
+        /* ไอคอนสีเขียว */
+        @apply absolute left-5 text-emerald-500 pointer-events-none;
+    }
+
+    .input-icon svg {
+        @apply w-5 h-5;
+    }
+
+    .input-field {
+        @apply w-full pl-14 pr-6 py-3.5 bg-slate-50 rounded-full border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all duration-200 font-normal text-slate-700 placeholder:text-slate-400 text-sm;
+    }
+
+    /* ---- ปุ่มและอื่นๆ ---- */
+    .submit-btn {
+        /* ปุ่มโทนเขียว */
+        @apply w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-medium tracking-wide py-3.5 px-4 rounded-full transition-all duration-300 shadow-lg shadow-emerald-200/50 hover:-translate-y-0.5 mt-6;
+    }
+
+    .error-box {
+        @apply bg-red-50 border border-red-100 text-red-600 p-3 rounded-2xl text-sm text-center font-normal flex items-center justify-center gap-2 mt-4;
+    }
+
+    /* ---- ส่วนสลับแท็บ (Tabs) ---- */
+    .tab-wrapper {
+        @apply flex p-1.5 bg-slate-100 rounded-full mb-8 relative w-full max-w-sm mx-auto md:mx-0;
+    }
+
+    .tab-btn {
+        @apply flex-1 py-2.5 text-sm font-medium text-slate-500 text-center rounded-full cursor-pointer transition-all duration-300 z-10;
+    }
+
+    .tab-btn.active {
+        @apply text-emerald-700 shadow-sm bg-white font-semibold;
+    }
+
+    /* ----------------------------------
+       RacketRun Standard Buttons
+    ----------------------------------- */
+    .btn {
+        @apply inline-flex items-center justify-center font-medium rounded-lg transition-colors py-2.5 px-4 text-sm disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply bg-emerald-500 text-white hover:bg-emerald-600 border border-transparent shadow-sm;
+    }
+
+    .btn-outline-secondary {
+        @apply border border-slate-200 text-slate-600 hover:bg-slate-50 bg-white;
+    }
+
+    .btn-outline-danger {
+        @apply border border-red-200 text-red-500 hover:bg-red-50 bg-white;
+    }
+
+    /* ----------------------------------
+       RacketRun Standard Cards
+    ----------------------------------- */
+    .card {
+        @apply bg-white rounded-2xl border border-slate-200;
+    }
+
+    .card-body {
+        @apply card p-6;
+    }
+
+    .card-interactive {
+        @apply card p-5 hover:border-emerald-500/30 hover:shadow-sm transition-all cursor-pointer block;
+    }
+
+    /* ----------------------------------
+       Helper Utilities
+    ----------------------------------- */
+
+    /* Typography & Layout */
+    .page-title {
+        @apply text-3xl font-semibold text-slate-800 tracking-tight;
+    }
+
+    .page-subtitle {
+        @apply text-slate-500 mt-1 text-sm;
+    }
+
+    /* Forms */
+    .form-label {
+        @apply block text-sm font-medium text-slate-700 mb-1.5;
+    }
+
+    .form-input {
+        @apply w-full border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 transition-colors disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:cursor-not-allowed;
+    }
+
+    .form-textarea {
+        @apply form-input resize-none;
+    }
+
+    .form-select {
+        @apply w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 transition-colors focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:cursor-not-allowed;
+    }
+
+    /* Alerts & Messages */
+    .alert-error {
+        @apply bg-red-50 border border-red-200 text-red-600 text-sm px-4 py-2.5 rounded-lg;
+    }
+
+    .alert-success {
+        @apply bg-green-50 border border-green-200 text-green-600 text-sm px-4 py-2.5 rounded-lg;
+    }
+
+    /* Badges */
+    .badge {
+        @apply text-xs px-2 py-0.5 rounded-md font-medium inline-block;
+    }
+
+    .badge-primary {
+        @apply badge bg-emerald-500/10 text-emerald-500;
+    }
+
+    /* From Sidebar.vue */
+    .nav-item {
+        @apply flex items-center gap-2.5 px-3 py-2.5 rounded-lg transition-colors text-sm text-slate-600 hover:text-emerald-600 hover:bg-emerald-50/50;
+    }
+
+    .active-nav {
+        @apply text-emerald-600 bg-emerald-50 font-medium;
+    }
+
+    /* From Posts/Index.vue */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* From Posts/Show.vue */
+    .fade-up-enter-active,
+    .fade-up-leave-active {
+        transition: all 0.3s ease;
+    }
+
+    .fade-up-enter-from,
+    .fade-up-leave-to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
